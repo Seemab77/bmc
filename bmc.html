@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GluWise Health — Business Model Canvas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f0ede8;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* A1 = 594mm × 841mm at 96dpi ≈ 2245px × 3179px */
+        /* We design at 1500px wide for screen preview, scales to print */
+        .poster {
+            width: 1500px;
+            min-height: 2100px;
+            background: #FAFAF7;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* === HEADER === */
+        .header {
+            background: #0A1628;
+            padding: 52px 72px 44px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 360px;
+            height: 360px;
+            background: #1D6B4A;
+            border-radius: 50%;
+            opacity: 0.25;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 30%;
+            width: 220px;
+            height: 220px;
+            background: #2E9E6F;
+            border-radius: 50%;
+            opacity: 0.12;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1D6B4A;
+            border-radius: 100px;
+            padding: 6px 18px 6px 10px;
+            margin-bottom: 18px;
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            background: #4ECFA0;
+            border-radius: 50%;
+        }
+
+        .brand-pill span {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #A8F0D4;
+            font-weight: 600;
+        }
+
+        .header-left h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 68px;
+            color: #FFFFFF;
+            line-height: 1.05;
+            letter-spacing: -1px;
+        }
+
+        .header-left h1 em {
+            font-style: italic;
+            color: #4ECFA0;
+        }
+
+        .header-left .tagline {
+            font-size: 16px;
+            color: #8BA4B8;
+            margin-top: 12px;
+            max-width: 520px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 32px;
+            justify-content: flex-end;
+            margin-bottom: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .val {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ECFA0;
+            line-height: 1;
+        }
+
+        .stat-item .lbl {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #6B8499;
+            margin-top: 4px;
+        }
+
+        .divider-line {
+            width: 40px;
+            height: 1px;
+            background: #4ECFA0;
+            margin: 0 auto 4px;
+            opacity: 0.5;
+        }
+
+        .bmc-label {
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #4B6478;
+            margin-top: 16px;
+            font-weight: 600;
+        }
+
+        /* === BMC GRID === */
+        .bmc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.4fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 0;
+            border-left: 2px solid #E2DFD8;
+            border-bottom: 2px solid #E2DFD8;
+        }
+
+        .cell {
+            border-right: 2px solid #E2DFD8;
+            border-top: 2px solid #E2DFD8;
+            padding: 28px 28px 24px;
+            position: relative;
+            background: #FAFAF7;
+            min-height: 320px;
+        }
+
+        /* Row 2: value prop spans full height of row2+3 */
+        .cell-kp {
+            grid-column: 1;
+            grid-row: 1 / 3;
+        }
+
+        .cell-ka {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .cell-vp {
+            grid-column: 3;
+            grid-row: 1 / 3;
+            background: #0A1628;
+        }
+
+        .cell-cr {
+            grid-column: 4;
+            grid-row: 1;
+        }
+
+        .cell-cs {
+            grid-column: 5;
+            grid-row: 1 / 3;
+        }
+
+        .cell-kr {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .cell-ch {
+            grid-column: 4;
+            grid-row: 2;
+        }
+
+        .cell-cost {
+            grid-column: 1 / 4;
+            grid-row: 3;
+            background: #F4F1EA;
+        }
+
+        .cell-rev {
+            grid-column: 4 / 6;
+            grid-row: 3;
+            background: #EBF5EF;
+        }
+
+        /* === CELL INTERIOR === */
+        .cell-tag {
+            font-size: 9px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0.45;
+            margin-bottom: 10px;
+        }
+
+        .cell-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 19px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            color: #0F1F2E;
+        }
+
+        .cell-vp .cell-title {
+            font-size: 26px;
+            color: #FFFFFF;
+        }
+
+        .cell-vp .cell-tag {
+            color: #4ECFA0;
+            opacity: 1;
+        }
+
+        .item {
+            display: flex;
+            gap: 9px;
+            margin-bottom: 11px;
+            align-items: flex-start;
+        }
+
+        .item-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .item-text {
+            font-size: 13px;
+            line-height: 1.55;
+            color: #2C3E4A;
+            font-weight: 400;
+        }
+
+        .item-text strong {
+            font-weight: 600;
+            color: #0F1F2E;
+        }
+
+        .cell-vp .item-text {
+            color: #B8D4C8;
+        }
+
+        .cell-vp .item-text strong {
+            color: #FFFFFF;
+        }
+
+        /* Value prop accent badge */
+        .vp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: #1D6B4A;
+            border-radius: 100px;
+            padding: 5px 14px 5px 8px;
+            margin-bottom: 20px;
+        }
+
+        .vp-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ECFA0;
+            border-radius: 50%;
+        }
+
+        .vp-badge span {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #A8F0D4;
+            font-weight: 600;
+        }
+
+        /* Core value props chips */
+        .vp-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .vp-chip {
+            background: rgba(78, 207, 160, 0.15);
+            border: 1px solid rgba(78, 207, 160, 0.3);
+            border-radius: 100px;
+            padding: 5px 13px;
+            font-size: 11.5px;
+            color: #A8F0D4;
+            font-weight: 500;
+        }
+
+        /* Assumption tag */
+        .assumption {
+            margin-top: 18px;
+            padding: 10px 13px;
+            background: rgba(0, 0, 0, 0.04);
+            border-left: 3px solid;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .cell-vp .assumption {
+            background: rgba(255, 255, 255, 0.06);
+            border-left-color: #4ECFA0;
+        }
+
+        .assumption-label {
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+            opacity: 0.5;
+        }
+
+        .cell-vp .assumption-label {
+            color: #4ECFA0;
+            opacity: 1;
+        }
+
+        .assumption-text {
+            font-size: 11.5px;
+            line-height: 1.5;
+            color: #2C3E4A;
+            font-style: italic;
+        }
+
+        .cell-vp .assumption-text {
+            color: #8EBDAD;
+        }
+
+        /* Experiment tag */
+        .experiment {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: rgba(78, 207, 160, 0.07);
+            border-radius: 6px;
+        }
+
+        .experiment-label {
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #1D6B4A;
+            margin-bottom: 3px;
+        }
+
+        .experiment-text {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #3A5C48;
+            font-style: italic;
+        }
+
+        /* Color dots per section */
+        .dot-green {
+            background: #1D9E75;
+        }
+
+        .dot-blue {
+            background: #185FA5;
+        }
+
+        .dot-amber {
+            background: #BA7517;
+        }
+
+        .dot-coral {
+            background: #D85A30;
+        }
+
+        .dot-purple {
+            background: #7F77DD;
+        }
+
+        .dot-teal {
+            background: #1D9E75;
+        }
+
+        .dot-dark {
+            background: #3C4858;
+        }
+
+        /* === COST / REVENUE === */
+        .cell-cost .cell-title,
+        .cell-rev .cell-title {
+            margin-bottom: 14px;
+        }
+
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .phase-box {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 10px;
+            padding: 12px 14px;
+        }
+
+        .phase-label {
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .phase-amount {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0A1628;
+            line-height: 1;
+            margin-bottom: 3px;
+        }
+
+        .phase-usd {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 7px;
+        }
+
+        .phase-desc {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #4A5568;
+        }
+
+        .rev-streams {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .rev-stream-box {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(30, 158, 117, 0.2);
+            border-radius: 10px;
+            padding: 13px 15px;
+        }
+
+        .rev-stream-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: #1D9E75;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .rev-stream-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+
+        .rev-stream-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #0F1F2E;
+            margin-bottom: 4px;
+        }
+
+        .rev-stream-desc {
+            font-size: 11px;
+            color: #4A5568;
+            line-height: 1.5;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: #1D9E75;
+            color: white;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-top: 6px;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: #0A1628;
+            padding: 28px 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-left {
+            font-size: 12px;
+            color: #4B6478;
+            font-weight: 400;
+        }
+
+        .footer-left strong {
+            color: #8BA4B8;
+            font-weight: 600;
+        }
+
+        .footer-kpis {
+            display: flex;
+            gap: 28px;
+        }
+
+        .kpi-item {
+            text-align: center;
+        }
+
+        .kpi-val {
+            font-size: 18px;
+            font-weight: 700;
+            color: #4ECFA0;
+            line-height: 1;
+        }
+
+        .kpi-lbl {
+            font-size: 9.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #4B6478;
+            margin-top: 3px;
+        }
+
+        .footer-right {
+            font-size: 10px;
+            color: #3A4F60;
+            text-align: right;
+        }
+
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 4mm;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: visible;
+                background: white;
+            }
+
+            .poster {
+                width: 1500px;
+                min-height: 2100px;
+                margin: 0;
+                box-shadow: none;
+                transform: none;
+                zoom: 0.50;
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="poster">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-inner">
+                <div class="header-left">
+                    <div class="brand-pill">
+                        <div class="brand-dot"></div>
+                        <span>Health Tech · Pakistan</span>
+                    </div>
+                    <h1>GluWise <em>Health</em></h1>
+                    <p class="tagline">Non-invasive glucose monitoring via spectroscopy — a pain-free, affordable
+                        diabetes management platform for emerging markets.</p>
+                </div>
+                <div class="header-right">
+                    <div class="stat-row">
+                        <div class="stat-item">
+                            <div class="val">537M+</div>
+                            <div class="divider-line"></div>
+                            <div class="lbl">Global Diabetics</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="val">PKR 5K</div>
+                            <div class="divider-line"></div>
+                            <div class="lbl">Device Price</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="val">≈8.5M</div>
+                            <div class="divider-line"></div>
+                            <div class="lbl">Total Funding (PKR)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="val">500</div>
+                            <div class="divider-line"></div>
+                            <div class="lbl">Scale Trigger (DAU)</div>
+                        </div>
+                    </div>
+                    <div class="bmc-label">Business Model Canvas · 2024–2026 Roadmap</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BMC GRID -->
+        <div class="bmc-grid">
+
+            <!-- KEY PARTNERS -->
+            <div class="cell cell-kp">
+                <div class="cell-tag" style="color:#185FA5;">Key Partners</div>
+                <div class="cell-title">Who We<br>Work With</div>
+
+                <div class="item">
+                    <div class="item-dot dot-blue"></div>
+                    <div class="item-text"><strong>Healthcare Providers</strong> — Clinics, hospitals, and
+                        diabetologists for clinical pilots and endorsements</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-blue"></div>
+                    <div class="item-text"><strong>Regulatory Bodies</strong> — DRAP (Pakistan), FDA (US), CE (Europe)
+                        for device approvals</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-blue"></div>
+                    <div class="item-text"><strong>Tech Developers</strong> — Hardware engineers (spectroscopy sensors)
+                        and mobile app dev team</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-blue"></div>
+                    <div class="item-text"><strong>Insurance Providers</strong> — Negotiating reimbursement coverage for
+                        device cost</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-blue"></div>
+                    <div class="item-text"><strong>Innovation Grants</strong> — Ignite, HITEC for non-dilutive seed
+                        funding</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-blue"></div>
+                    <div class="item-text"><strong>Universities</strong> — Local engineering institutions for affordable
+                        R&amp;D collaboration</div>
+                </div>
+                <div class="assumption" style="border-left-color:#185FA5;">
+                    <div class="assumption-label">Key Assumption</div>
+                    <div class="assumption-text">Healthcare providers will endorse and integrate the product into their
+                        practices.</div>
+                </div>
+                <div class="experiment">
+                    <div class="experiment-label">→ Low-Cost Test</div>
+                    <div class="experiment-text">Pilot with one local clinic; gather structured provider feedback.</div>
+                </div>
+            </div>
+
+            <!-- KEY ACTIVITIES -->
+            <div class="cell cell-ka" style="min-height:200px;">
+                <div class="cell-tag" style="color:#BA7517;">Key Activities</div>
+                <div class="cell-title">What We Do</div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>R&amp;D</strong> — Spectroscopy-based glucose sensor development
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>Clinical Trials</strong> — Accuracy validation, regulatory submission
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>App Development</strong> — Real-time sync, trend alerts, EHR
+                        integration</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>Regulatory Compliance</strong> — DRAP, FDA, CE pathways</div>
+                </div>
+                <div class="assumption" style="border-left-color:#BA7517;">
+                    <div class="assumption-label">Key Assumption</div>
+                    <div class="assumption-text">Device will pass trials without significant delays.</div>
+                </div>
+                <div class="experiment">
+                    <div class="experiment-label">→ Low-Cost Test</div>
+                    <div class="experiment-text">Small-scale trial (n=20) to test accuracy &amp; regulatory feedback
+                        early.</div>
+                </div>
+            </div>
+
+            <!-- VALUE PROPOSITION (dark hero cell) -->
+            <div class="cell cell-vp">
+                <div class="vp-badge">
+                    <div class="vp-badge-dot"></div><span>Core Value</span>
+                </div>
+                <div class="cell-tag">Value Proposition</div>
+                <div class="cell-title">Pain-Free. Affordable.<br>Continuous Glucose<br>Intelligence.</div>
+
+                <div class="item">
+                    <div class="item-dot" style="background:#4ECFA0;"></div>
+                    <div class="item-text"><strong>Non-invasive monitoring</strong> via near-infrared spectroscopy — no
+                        finger pricks, ever.</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot" style="background:#4ECFA0;"></div>
+                    <div class="item-text"><strong>Real-time mobile dashboard</strong> with trends, alerts, and
+                        AI-driven insights.</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot" style="background:#4ECFA0;"></div>
+                    <div class="item-text"><strong>Affordable at PKR 5,000</strong> — designed specifically for emerging
+                        market purchasing power.</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot" style="background:#4ECFA0;"></div>
+                    <div class="item-text"><strong>EHR &amp; provider integration</strong> for seamless remote
+                        monitoring by clinicians.</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot" style="background:#4ECFA0;"></div>
+                    <div class="item-text"><strong>Clinically validated</strong> — FDA/CE/DRAP certified before market
+                        launch.</div>
+                </div>
+
+                <div class="vp-chips">
+                    <div class="vp-chip">No finger pricks</div>
+                    <div class="vp-chip">Real-time alerts</div>
+                    <div class="vp-chip">PKR 5,000 device</div>
+                    <div class="vp-chip">AI insights</div>
+                    <div class="vp-chip">Emerging markets</div>
+                </div>
+
+                <div class="assumption">
+                    <div class="assumption-label">Key Assumption</div>
+                    <div class="assumption-text">Market will accept the device based on accuracy and affordability.
+                    </div>
+                </div>
+                <div style="margin-top:10px; padding:8px 12px; background:rgba(78,207,160,0.1); border-radius:6px;">
+                    <div class="experiment-label" style="color:#4ECFA0;">→ Low-Cost Test</div>
+                    <div class="experiment-text" style="color:#7BBDAB;">Free trials to targeted diabetic patients;
+                        measure adoption &amp; willingness to pay.</div>
+                </div>
+            </div>
+
+            <!-- CUSTOMER RELATIONSHIPS -->
+            <div class="cell cell-cr" style="min-height:200px;">
+                <div class="cell-tag" style="color:#7F77DD;">Customer Relationships</div>
+                <div class="cell-title">How We Connect</div>
+                <div class="item">
+                    <div class="item-dot dot-purple"></div>
+                    <div class="item-text"><strong>Self-service app</strong> for daily monitoring</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-purple"></div>
+                    <div class="item-text"><strong>Online support</strong> via chat and helpdesk</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-purple"></div>
+                    <div class="item-text"><strong>Regular app updates</strong> to improve engagement</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-purple"></div>
+                    <div class="item-text"><strong>Doctor endorsement</strong> pathway for trust building</div>
+                </div>
+                <div class="assumption" style="border-left-color:#7F77DD;">
+                    <div class="assumption-label">Key Assumption</div>
+                    <div class="assumption-text">Users prefer self-service over frequent direct provider interaction.
+                    </div>
+                </div>
+                <div class="experiment">
+                    <div class="experiment-label">→ Low-Cost Test</div>
+                    <div class="experiment-text">Track app usage patterns; survey to test self-service adequacy.</div>
+                </div>
+            </div>
+
+            <!-- CUSTOMER SEGMENTS -->
+            <div class="cell cell-cs">
+                <div class="cell-tag" style="color:#D85A30;">Customer Segments</div>
+                <div class="cell-title">Who We<br>Serve</div>
+
+                <div class="item">
+                    <div class="item-dot dot-coral"></div>
+                    <div class="item-text"><strong>Primary:</strong> Diabetic patients in Pakistan and emerging markets
+                        — underserved, price-sensitive, lacking access to continuous monitoring.</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-coral"></div>
+                    <div class="item-text"><strong>Elderly population</strong> with Type 2 diabetes and low tech
+                        confidence.</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-coral"></div>
+                    <div class="item-text"><strong>Healthcare providers</strong> (clinicians, nurses, diabetologists)
+                        needing remote monitoring tools.</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-coral"></div>
+                    <div class="item-text"><strong>Low-income communities</strong> in high-prevalence regions with
+                        limited clinic access.</div>
+                </div>
+                <div class="assumption" style="border-left-color:#D85A30;">
+                    <div class="assumption-label">Key Assumption</div>
+                    <div class="assumption-text">Primary segment: diabetic patients in emerging markets lacking
+                        traditional solutions.</div>
+                </div>
+                <div class="experiment">
+                    <div class="experiment-label">→ Low-Cost Test</div>
+                    <div class="experiment-text">5-interview study to validate pain points &amp; willingness to adopt.
+                    </div>
+                </div>
+            </div>
+
+            <!-- KEY RESOURCES -->
+            <div class="cell cell-kr" style="min-height:220px;">
+                <div class="cell-tag" style="color:#BA7517;">Key Resources</div>
+                <div class="cell-title">What We Need</div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>R&amp;D Team</strong> — Sensor engineers + data scientists</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>Manufacturing Partners</strong> — Local + global hardware sourcing
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>Software Team</strong> — iOS/Android app + cloud infra</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>Regulatory Experts</strong> — DRAP/FDA specialists</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-amber"></div>
+                    <div class="item-text"><strong>Data Security Infra</strong> — HIPAA/GDPR compliant systems</div>
+                </div>
+                <div class="experiment">
+                    <div class="experiment-label">→ Low-Cost Test</div>
+                    <div class="experiment-text">Get 3 competing quotes from manufacturers before committing.</div>
+                </div>
+            </div>
+
+            <!-- CHANNELS -->
+            <div class="cell cell-ch" style="min-height:220px;">
+                <div class="cell-tag" style="color:#7F77DD;">Channels</div>
+                <div class="cell-title">How We Reach Them</div>
+                <div class="item">
+                    <div class="item-dot dot-purple"></div>
+                    <div class="item-text"><strong>Online direct sales</strong> via GluWise website</div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-purple"></div>
+                    <div class="item-text"><strong>Healthcare provider partnerships</strong> — clinic prescriptions
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-purple"></div>
+                    <div class="item-text"><strong>Social media &amp; influencer</strong> marketing (health accounts)
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot dot-purple"></div>
+                    <div class="item-text"><strong>Insurance channels</strong> — reimbursement-driven adoption</div>
+                </div>
+                <div class="assumption" style="border-left-color:#7F77DD;">
+                    <div class="assumption-label">Key Assumption</div>
+                    <div class="assumption-text">Digital marketing + provider partnerships drive user acquisition
+                        effectively.</div>
+                </div>
+                <div class="experiment">
+                    <div class="experiment-label">→ Low-Cost Test</div>
+                    <div class="experiment-text">Small digital campaign targeting diabetics; monitor conversion rates.
+                    </div>
+                </div>
+            </div>
+
+            <!-- COST STRUCTURE -->
+            <div class="cell cell-cost" style="min-height:280px;">
+                <div class="cell-tag" style="color:#D85A30;">Cost Structure</div>
+                <div class="cell-title">What It Costs to Build &amp; Scale</div>
+                <div class="phase-grid">
+                    <div class="phase-box">
+                        <div class="phase-label">Phase 1 · Seed · 0–12mo</div>
+                        <div class="phase-amount">PKR 1.5M</div>
+                        <div class="phase-usd">≈ USD 5,500</div>
+                        <div class="phase-desc">Prototype R&amp;D · DRAP regulatory setup · Legal structure · Early team
+                            · Initial device testing</div>
+                    </div>
+                    <div class="phase-box">
+                        <div class="phase-label">Phase 2 · Startup · 12–24mo</div>
+                        <div class="phase-amount">PKR 2.0M</div>
+                        <div class="phase-usd">≈ USD 7,500</div>
+                        <div class="phase-desc">Batch production (500–1,000 units) · App development · Digital marketing
+                            · Healthcare pilots</div>
+                    </div>
+                    <div class="phase-box">
+                        <div class="phase-label">Phase 3 · Growth · 24–36mo</div>
+                        <div class="phase-amount">PKR 5.0M</div>
+                        <div class="phase-usd">≈ USD 18,500</div>
+                        <div class="phase-desc">Scale production (5,000–10,000 units) · City expansion · Support systems
+                            · Team build-out · Insurance tie-ups</div>
+                    </div>
+                </div>
+                <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span
+                        style="font-size:11px; background:rgba(216,90,48,0.1); border-radius:20px; padding:4px 12px; color:#8B3918; font-weight:500;">Bootstrapping
+                        (Seed)</span>
+                    <span
+                        style="font-size:11px; background:rgba(216,90,48,0.1); border-radius:20px; padding:4px 12px; color:#8B3918; font-weight:500;">Crowdfunding
+                        (Startup)</span>
+                    <span
+                        style="font-size:11px; background:rgba(216,90,48,0.1); border-radius:20px; padding:4px 12px; color:#8B3918; font-weight:500;">Angel
+                        Investors</span>
+                    <span
+                        style="font-size:11px; background:rgba(216,90,48,0.1); border-radius:20px; padding:4px 12px; color:#8B3918; font-weight:500;">Ignite
+                        / HITEC Grants</span>
+                    <span
+                        style="font-size:11px; background:rgba(216,90,48,0.1); border-radius:20px; padding:4px 12px; color:#8B3918; font-weight:500;">Strategic
+                        Partnerships (Growth)</span>
+                </div>
+            </div>
+
+            <!-- REVENUE STREAMS -->
+            <div class="cell cell-rev" style="min-height:280px;">
+                <div class="cell-tag" style="color:#1D9E75;">Revenue Streams</div>
+                <div class="cell-title">How We Make Money</div>
+                <div class="rev-streams">
+                    <div class="rev-stream-box">
+                        <div class="rev-stream-icon">
+                            <svg viewBox="0 0 16 16">
+                                <path
+                                    d="M8 1a5 5 0 100 10A5 5 0 008 1zm0 1.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zM8 14a6 6 0 110-12A6 6 0 018 14z" />
+                            </svg>
+                        </div>
+                        <div class="rev-stream-name">Direct Device Sales</div>
+                        <div class="rev-stream-desc">One-time hardware purchase for each patient.</div>
+                        <div class="price-tag">PKR 5,000 / unit</div>
+                    </div>
+                    <div class="rev-stream-box">
+                        <div class="rev-stream-icon">
+                            <svg viewBox="0 0 16 16">
+                                <path d="M2 3h12v2H2zM2 7h9v2H2zM2 11h6v2H2z" />
+                            </svg>
+                        </div>
+                        <div class="rev-stream-name">App Subscription</div>
+                        <div class="rev-stream-desc">Premium features: continuous monitoring, AI insights, data export.
+                        </div>
+                        <div class="price-tag">Monthly SaaS</div>
+                    </div>
+                    <div class="rev-stream-box">
+                        <div class="rev-stream-icon">
+                            <svg viewBox="0 0 16 16">
+                                <path d="M1 3h14v10H1zm1 1v8h12V4z" />
+                            </svg>
+                        </div>
+                        <div class="rev-stream-name">Insurance Reimbursement</div>
+                        <div class="rev-stream-desc">Post-FDA/CE validation, payers cover device cost for covered
+                            members.</div>
+                        <div class="price-tag">Partnership Model</div>
+                    </div>
+                    <div class="rev-stream-box">
+                        <div class="rev-stream-icon">
+                            <svg viewBox="0 0 16 16">
+                                <path d="M8 1L3 5.5V14h10V5.5L8 1zm0 2l4 3.5V13H4V6.5L8 3z" />
+                            </svg>
+                        </div>
+                        <div class="rev-stream-name">Provider Licensing</div>
+                        <div class="rev-stream-desc">Clinics pay for remote patient monitoring dashboard access &amp;
+                            analytics.</div>
+                        <div class="price-tag">B2B Licence</div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /bmc-grid -->
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-left">
+                <strong>GluWise Health Pvt. Ltd.</strong> · Private Limited Company Structure · Scalable Social
+                Startup<br>
+                Registered in Pakistan · Target Market: PKR 5,000 device · Scale trigger: 500 daily active users
+            </div>
+            <div class="footer-kpis">
+                <div class="kpi-item">
+                    <div class="kpi-val">DRAP</div>
+                    <div class="kpi-lbl">Primary Approval</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-val">FDA+CE</div>
+                    <div class="kpi-lbl">International</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-val">NIR</div>
+                    <div class="kpi-lbl">Spectroscopy Tech</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-val">B-Corp</div>
+                    <div class="kpi-lbl">ESG Target</div>
+                </div>
+            </div>
+            <div class="footer-right">
+                Business Model Canvas<br>
+                Section 3 · GluWise Report 2024
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
